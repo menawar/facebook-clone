@@ -8,13 +8,15 @@ import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import './Sidebar.css';
 import SidebarRow from './SidebarRow';
+import { useStateValue } from './StateProvider';
 
 function Sidebar() {
+    const [{user} , dispatch] = useStateValue();
     return (
         <div className="sidebar">
            <SidebarRow
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfwM2108oL7bhv9Ee8QQBC2dCng0jnV0kAow&usqp=CAU'
-            title='Sylvester Menawar'
+            src={user.photoURL}
+            title={user.displayName}
           />
           <SidebarRow
             Icon={LocalHospitalIcon}
